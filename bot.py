@@ -165,6 +165,14 @@ async def on_message(message):
                 await client.delete_message(message1)
                 await asyncio.sleep(0.5) 
                 await client.delete_message(message2)
+    if message.content.startswith("kanye, earlylink"):
+            await client.delete_message(message)
+            embed = discord.Embed(color=0x2fe14e)
+            embed.add_field(name=f'SOTO EL', value='https://www.sotostore.com/en/product/17407/air-fear-of-god-1
+', inline=False)
+            embed.set_footer(text="Kanye Bot made by Plug#5464")
+            await client.send_message(message.channel,embed=embed)
+
 
              
 
