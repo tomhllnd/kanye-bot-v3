@@ -75,7 +75,22 @@ async def on_message(message):
         embed.add_field(name=facts[random.randint(0,(len(facts)-1))], value='- Kanye West', inline=False)
         embed.set_footer(text="Kanye Bot made by Plug#5464")
         await client.send_message(message.channel,embed=embed)
-    if message.content.startswith("kanye, help"):
+    if message.content.startswith("kanye, ratio"):
+        proxies = 0
+        tasks = 0
+        optimalspeed = 0
+        await client.send_message(message.channel,'Enter the amount of proxies by typing `proxies <amount>` and then type the amount of tasks by typing `tasks <amount>`)
+        if message.content.startswith("proxies "):
+            proxies = int(message.content[7:])
+        if message.content.startswith("tasks "):
+            tasks = int(message.content[5:])
+        optimalspeed = 3500/(proxies/tasks)
+        await client.send_message(message.channel,f'With {proxies} proxies and {tasks} tasks, the optimal unbannable monitor delay is {optimalspeed}ms')           
+     if message.content.startswith("kanye, proxyhelp"):
+        embed = discord.Embed(color=0x2fe14e)
+        embed.add_field(name='Use `kanye, ratio` to calculate unbannable monitor delays', value='Shopify will ban at around 3200ms, this calculation uses 3500 for saftey. Do note that this realys on the conecpt that each task will monitor for the product individually. Some bots (like Cyber) are more efficient with this and you should lower speeds with them. If your running for a release, turning the delays down is completely fine, as long as you stop soon after to avoid getting softbanned', inline=False)
+        embed.set_footer(text="Kanye Bot made by Plug#5464")
+     if message.content.startswith("kanye, help"):
         embed = discord.Embed(color=0x2fe14e)
         embed.set_author(name="Hey, I'm Kanye.", icon_url="https://cdn.discordapp.com/attachments/533238248781250563/535116197591646218/help.png")
         embed.add_field(name='__Fee Calculator__', value='Beckon me with `kanye, fees <amount>` and I will calculate the fees each of the sites you dirty resellers will take', inline=False)
